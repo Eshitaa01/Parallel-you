@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-ink: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-2: #f1f5f9;
+  --color-surface-hover: #e2e8f0;
+  --color-line: #e2e8f0;
+  --color-line-subtle: #f1f5f9;
+  --color-fog: #475569;
+  --color-fog-muted: #94a3b8;
+  --color-paper: #0f172a;
+  --color-path-ai: #6366f1;
+  --color-path-frontend: #0d9488;
+  --color-path-pm: #ea580c;
+  --color-path-data: #e11d48;
+  --glow-color: rgba(99, 102, 241, 0.25);
+  color-scheme: light;
+}
+
+.dark {
+  --color-ink: #0b0e1a;
+  --color-surface: #121729;
+  --color-surface-2: #181f38;
+  --color-surface-hover: #1e2746;
+  --color-line: #262e4a;
+  --color-line-subtle: #192036;
+  --color-fog: #94a3b8;
+  --color-fog-muted: #64748b;
+  --color-paper: #f1f3f9;
+  --color-path-ai: #7c6fff;
+  --color-path-frontend: #43c6ac;
+  --color-path-pm: #ff9f5a;
+  --color-path-data: #ff6e9c;
+  --glow-color: rgba(124, 111, 255, 0.35);
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+::selection {
+  background: var(--color-path-ai);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-path-ai);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-line);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-fog-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Unlimited Potential / Easter Egg Modes */
+.unlimited-potential .path-title {
+  background: linear-gradient(90deg, #7c6fff, #43c6ac, #ff9f5a, #ff6e9c, #7c6fff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  animation: shimmer 4s linear infinite;
+}
+
+.multiverse-warp {
+  animation: cosmic-pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -300% 0;
+  }
+}
+
+@keyframes cosmic-pulse {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(45deg);
+  }
+}
